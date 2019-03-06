@@ -1,3 +1,4 @@
+package com.spring.wiring;
 import java.io.File;
 
 import org.springframework.context.annotation.Bean;

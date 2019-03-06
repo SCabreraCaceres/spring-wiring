@@ -1,28 +1,28 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import javax.inject.Inject;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import com.spring.dependency.ArbitraryDependency;
+import com.spring.wiring.ApplicationContextTestAutowiredName;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = ArbitraryDependency.class)
-public class FieldInjectTest {
+@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = ApplicationContextTestAutowiredName.class)
+public class FieldAutowiredNameTest {
 
-	@Inject
-	private ArbitraryDependency fieldInjectionDependency;
+	@Autowired
+	private ArbitraryDependency autowiredFieldDependency;
 
 	@Test
-	public void givenInjectAnnotation_WhenOnField_ThenValidDependency() {
-		assertNotNull(fieldInjectionDependency);
+	public void givenAutowiredAnnotation_WhenOnField_ThenDepValid() {
+		assertNotNull(autowiredFieldDependency);
 		assertEquals("Arbitrary Dependency",
-				fieldInjectionDependency.toString());
+				autowiredFieldDependency.toString());
 	}
 
 }

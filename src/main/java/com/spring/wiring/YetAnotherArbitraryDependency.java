@@ -1,3 +1,6 @@
+package com.spring.wiring;
+
+import com.spring.dependency.ArbitraryDependency;
 
 public class YetAnotherArbitraryDependency extends ArbitraryDependency {
 
